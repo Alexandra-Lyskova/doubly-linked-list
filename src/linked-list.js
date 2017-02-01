@@ -25,6 +25,7 @@ class LinkedList {
         this.tailofl = node;
       }
       this.length++;
+      return this;
     }
 
     head()
@@ -66,15 +67,16 @@ class LinkedList {
     deleteAt(index)
     {
      var cNode = this.headofl;
-     count = 1,
-     if (this.length === 0 || index < 1 || index > this.length)
+     ln = this.length;
+     count = 1;
+     if (ln === 0 || index < 1 || index > ln)
        {
            throw new Error("Invalid index or length");
        }
      if (index === 1)
        {
-           cNode = cNode.next;
-           if (!cNode)
+           this.headofl = cNode.next;
+           if (!this.headofl)
              {
                  cNode.prev = null;
              } else
