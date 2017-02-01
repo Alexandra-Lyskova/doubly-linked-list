@@ -10,19 +10,21 @@ class LinkedList {
 
     append(data)
     {
-      if (this.headofl === null) {
-    node.prev = node;
-    node.next = node;
-    this.headofl = node;
-    this.tailofl = node;
-  } else {
-    node.prev = this.tailofl;
-    node.next = this.headofl;
-    this.headofl.prev = node;
-    this.tailofl.next = node;
-    this.tailofl = node;
-  }
-  this.length++;
+      let node = new Node(data);
+      if (this.headofl === null)
+      {
+        //node.prev = node;
+        //node.next = node;
+        this.headofl = node;
+        this.tailofl = node;
+      } else {
+        node.prev = this.tailofl;
+        //node.next = this.headofl;
+        //this.headofl.prev = node;
+        this.tailofl.next = node;
+        this.tailofl = node;
+      }
+      this.length++;
     }
 
     head()
