@@ -8,7 +8,22 @@ class LinkedList {
       this.length = 0;
     }
 
-    append(data) {}
+    append(data)
+    {
+      if (this.headofl === null) {
+    node.prev = node;
+    node.next = node;
+    this.headofl = node;
+    this.tailofl = node;
+  } else {
+    node.prev = this.tailofl;
+    node.next = this.headofl;
+    this.headofl.prev = node;
+    this.tailofl.next = node;
+    this.tailofl = node;
+  }
+  this.length++;
+    }
 
     head()
     {
@@ -38,7 +53,13 @@ class LinkedList {
       }
     }
 
-    clear() {}
+    clear()
+    {
+      this.headofl = null;
+      this.tailofl = null;
+      this.length = 0;
+      return this;
+    }
 
     deleteAt(index) {}
 
