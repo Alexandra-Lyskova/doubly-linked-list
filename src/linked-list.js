@@ -63,7 +63,45 @@ class LinkedList {
       return this;
     }
 
-    deleteAt(index) {}
+    deleteAt(index)
+    {
+     var cNode = this.headofl;
+     count = 1,
+     if (this.length === 0 || index < 1 || index > this.length)
+       {
+           throw new Error("Invalid index or length");
+       }
+     if (index === 1)
+       {
+           cNode = cNode.next;
+           if (!cNode)
+             {
+                 cNode.prev = null;
+             } else
+             {
+                 this.tailofl = null;
+             }
+       }
+       else if (index === this.length)
+       {
+           this.tailofl = this.tailofl.prev;
+           this.tail.next = null;
+       }
+       else
+       {
+         while (count < index)
+           {
+               cNode = cNode.next;
+               count++;
+           }
+         cNode.prev.next = cNode.next;
+         cNode.next.prev = cNode.prev;
+         cNode = null;
+       }
+
+     this.length--;
+     return this;
+    }
 
     reverse() {}
 
