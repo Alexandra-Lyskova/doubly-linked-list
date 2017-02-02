@@ -107,7 +107,21 @@ class LinkedList {
 
     reverse() {}
 
-    indexOf(data) {}
+    indexOf(data)
+    {
+      var cNode = this.headof;
+      index = 0;
+      while (cNode.data != data)
+      {
+          if (!cNode.next) return (index-1);
+          else
+          {
+              cNode = cNode.next;
+              index++;
+          }
+      }
+      return index;
+    }
 }
 
 module.exports = LinkedList;
