@@ -13,14 +13,14 @@ class LinkedList {
       let node = new Node(data);
       if (this.headofl === null)
       {
-        //node.prev = node;
-        //node.next = node;
+        node.prev = node;
+        node.next = node;
         this.headofl = node;
         this.tailofl = node;
       } else {
         node.prev = this.tailofl;
-        //node.next = this.headofl;
-        //this.headofl.prev = node;
+        node.next = this.headofl;
+        this.headofl.prev = node;
         this.tailofl.next = node;
         this.tailofl = node;
       }
@@ -60,7 +60,7 @@ class LinkedList {
     insertAt(index, data)
     {
       var cNode = this.headofl,
-    	incNode = new Node(data),
+    	newcNode = new Node(data),
     	count = 0;
 
     	if (!cNode) {
@@ -72,14 +72,13 @@ class LinkedList {
     			count++;
     		}
 
-    		incNode.prev = cNode.prev;
-    		incNode.next = cNode;
-    		cNode.prev.next = incNode;
-    		cNode.prev = incNode;
+    		newcNode.prev = cNode.prev;
+    		newcNode.next = cNode;
+    		cNode.prev.next = newcNode;
+    		cNode.prev = newcNode;
 
             this.length++;
     	}
-
     	return this;
     }
 
@@ -158,5 +157,4 @@ class LinkedList {
       return index;
     }
 }
-
 module.exports = LinkedList;
