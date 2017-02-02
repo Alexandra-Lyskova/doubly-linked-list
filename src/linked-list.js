@@ -68,7 +68,7 @@ class LinkedList {
     {
      var cNode = this.headofl;
      ln = this.length;
-     count = 1;
+     count = 0;
      if (ln === 0 || index < 1 || index > ln)
        {
            throw new Error("Invalid index or length");
