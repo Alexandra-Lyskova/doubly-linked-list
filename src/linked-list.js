@@ -44,9 +44,44 @@ class LinkedList {
       }
     }
 
-    at(index) {}
+    at(index)
+    {
+      var cNode = this.headofl,
+      count = 0;
 
-    insertAt(index, data) {}
+      while (count < index) {
+        cNode = cNode.next;
+        count++;
+      }
+
+      return cNode.data;
+    }
+
+    insertAt(index, data)
+    {
+      var cNode = this.headofl,
+    	incNode = new Node(data),
+    	count = 0;
+
+    	if (!cNode) {
+    		this.append(data);
+    	}
+    	else {
+    		while (count < index) {
+    			cNode = cNode.next;
+    			count++;
+    		}
+
+    		incNode.prev = cNode.prev;
+    		incNode.next = cNode;
+    		cNode.prev.next = incNode;
+    		cNode.prev = incNode;
+
+            this.length++;
+    	}
+
+    	return this;
+    }
 
     isEmpty()
     {
