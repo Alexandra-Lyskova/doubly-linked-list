@@ -141,7 +141,7 @@ class LinkedList {
 
     reverse()
     {
-      var cNode = this.headofl;
+      /*var cNode = this.headofl;
       var previous = null;
 
       while(cNode) {
@@ -154,7 +154,22 @@ class LinkedList {
         // increment node to next node or null at end of list
         cNode = save;
       }
-      return previous;
+      return previous;*/
+      while (true) {
+          this._head.prev = [this._head.next, this._head.next = this._head.prev][0];
+
+          if (!this._head.prev) break;
+          else this._head = this._head.prev;
+      }
+      var sNode = this._head,
+          count = 1;
+
+      while (count < this.length) {
+          sNode = sNode.next;
+          count++;
+      }
+      this._tail = sNode;
+      return this;
     }
 
     indexOf(data)
