@@ -139,11 +139,27 @@ class LinkedList {
      return this;
     }
 
-    reverse() {}
+    reverse()
+    {
+      var cNode = this.headofl;
+      var previous = null;
+
+      while(cNode) {
+        // save next or you lose it!!!
+        var save = cNode.next;
+        // reverse pointer
+        cNode.next = previous;
+        // increment previous to current node
+        previous = cNode;
+        // increment node to next node or null at end of list
+        cNode = save;
+      }
+      return previous;
+    }
 
     indexOf(data)
     {
-      var cNode = this.headof;
+      var cNode = this.headofl;
       index = 0;
       while (cNode.data != data)
       {
