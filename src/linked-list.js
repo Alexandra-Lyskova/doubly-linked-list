@@ -156,19 +156,19 @@ class LinkedList {
       }
       return previous;*/
       while (true) {
-          this._head.prev = [this._head.next, this._head.next = this._head.prev][0];
+          this.headofl.prev = [this.headofl.next, this.headofl.next = this.headofl.prev][0];
 
-          if (!this._head.prev) break;
-          else this._head = this._head.prev;
+          if (!this.headofl.prev) break;
+          else this.headofl = this.headofl.prev;
       }
-      var sNode = this._head,
+      var cNode = this.headofl,
           count = 1;
 
       while (count < this.length) {
-          sNode = sNode.next;
+          cNode = cNode.next;
           count++;
       }
-      this._tail = sNode;
+      this.tailofl = cNode;
       return this;
     }
 
