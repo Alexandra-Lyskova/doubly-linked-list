@@ -10,17 +10,14 @@ class LinkedList {
 
     append(data)
     {
-      let node = new Node(data);
+      var node = new Node(data);
       if (this.headofl === null)
       {
-        node.prev = node;
-        node.next = node;
         this.headofl = node;
         this.tailofl = node;
       } else {
         node.prev = this.tailofl;
         node.next = this.headofl;
-        this.headofl.prev = node;
         this.tailofl.next = node;
         this.tailofl = node;
       }
@@ -46,15 +43,14 @@ class LinkedList {
 
     at(index)
     {
-      var cNode = this.headofl,
-      count = 0;
-
-      while (count < index) {
-        cNode = cNode.next;
-        count++;
+      var cNode = this.headofl, count = 0;
+      if(index >= 0 && index < this.length) {
+        while (count < index) {
+          cNode = cNode.next;
+          count++;
+        }
+        return cNode.data;
       }
-
-      return cNode.data;
     }
 
     insertAt(index, data)
@@ -141,8 +137,7 @@ class LinkedList {
 
     reverse()
     {
-      var cNode = this.headofl;
-      var previous = null;
+      var cNode = this.headofl, previous = null;
 
       while(cNode) {
         var save = cNode.next;
@@ -159,7 +154,7 @@ class LinkedList {
       index = 0;
       while (cNode.data != data)
       {
-          if (!cNode.next) return (index-1);
+          if (!cNode.next) return 0;
           else
           {
               cNode = cNode.next;
